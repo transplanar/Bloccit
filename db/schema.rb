@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20151030222349) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "body"
-    t.string   "question"
+    t.integer  "question_id"
     t.string   "references"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "comments", force: :cascade do |t|
