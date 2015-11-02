@@ -1,0 +1,29 @@
+<h1>The Post Your Own Ad!</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <p>Tell us about your awesome product or service!</p>
+    </div>
+    
+    <div class="col-md-8">
+        <%= form_for @advertisements do |ad| %>
+            <div class="form-group">
+                <%= ad.label = :title %>
+                <% ad.text_field :title, class: 'form-control', placeholder: "Enter product/service name" %> 
+            </div>
+            
+            <div class="form-group">
+                <%= ad.label = :copy %>
+                <% ad.text_field :copy, rows: 8, class: 'form-control', placeholder: "Describe your product/service" %> 
+            </div>
+            
+            <div class="form-group">
+                <%= ad.label = :price %>
+                <% ad.text_field :price, class: 'form-control', placeholder: "Enter the price of your item" %> 
+            </div>
+            
+            <div class="form-group">
+                <%= f.submit "Submit", class: 'btn btn-success' %>
+            </div>
+    </div>
+</div>

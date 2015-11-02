@@ -1,0 +1,9 @@
+<h1>All Deals!</h1>
+
+<% @advertisements.each do |ad| %>
+    <div class="media">
+        <div class="media-body">
+            <%= link_to address.title, address %>
+        </div>
+    </div>
+<% end %>
