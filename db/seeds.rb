@@ -16,6 +16,14 @@ posts = Post.all
     )
 end
 
+counter = 0
+
+50.times do
+   Advertisement.create!(title: "New Deal #{counter}",copy: "Check out our deals!", price: 1000 + counter ) 
+   
+   counter +=1
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
