@@ -16,7 +16,16 @@ posts = Post.all
     )
 end
 
+counter = 1
+
+5.times do
+  Question.create!(title: "Question \##{counter}",
+  body:"Is #{counter} equal to #{counter+1}?",
+  resolved: false)
+  counter += 1
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-        
+puts "#{Question.count} questions created"
