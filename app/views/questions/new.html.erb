@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-md-8">
-        <%= form_for @post do |f| %>
+        <%= form_for @question do |f| %>
             <div class="form-group">
                 <%= f.label :title %>
                 <%= f.text_field :title, class: 'form-control', placeholder: "Enter form title" %>
@@ -14,8 +14,8 @@
 
             <!-- TODO: May require refactoring -->
             <div class="form_group">
-                <%= f.label :body %>
-                <%= f.check_box :resolved %>
+                <%= f.label :resolved %>
+                <%= f.check_box :resolved, {}, true, false %>
             </div>
 
             <div class="form-group">

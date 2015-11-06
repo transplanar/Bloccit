@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe QuestionController, type: :controller do
-  et(:my_question){Question.create!(title: "Test Title", body: "Test Body", resolved:false)}
+RSpec.describe QuestionsController, type: :controller do
+  let(:my_question){Question.create!(title: "Test Title", body: "Test Body", resolved:false)}
 
   describe "GET #index" do
     it "returns http success" do
@@ -92,7 +92,7 @@ RSpec.describe QuestionController, type: :controller do
     it "update question with expected attributes" do
       new_title = "New Test Title"
       new_body = "New Test Body"
-      new_resolved = true
+      new_resolved = 0
 
       put :update, id: my_question.id, question: {title: new_title, body: new_body, resolved: new_resolved}
 
@@ -106,7 +106,7 @@ RSpec.describe QuestionController, type: :controller do
     it "redirects to the updated question" do
       new_title = "New Test Title"
       new_body = "New Test Body"
-      new_resolved = true
+      new_resolved = 0
 
       put :update, id: my_question.id, question: {title: new_title, body: new_body, resolved: new_resolved}
       expect(response).to redirect_to my_question
@@ -124,7 +124,7 @@ RSpec.describe QuestionController, type: :controller do
     it "redirects tot questions index" do
       delete :destroy, {id: my_question.id}
 
-      expect(response).to redirect_to question_path
+      expect(response).to redirect_to questions_path
     end
   end
 end
