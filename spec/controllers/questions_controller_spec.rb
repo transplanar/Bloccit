@@ -51,16 +51,18 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "POST create" do
     it "increase the number of question by 1" do
-      expect{question :create, question: {title: "Test Title", body: "Test Body", resolved: false}}.to change(Question, :count).by(1)
+      expect{ question :create, {question: {title: "Test Title", description: "Test body"}}}.to change(Question,:count).by(1)
+      #expect{ question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}.to change(Question, :count).by(1)
     end
 
     it "assigns the new question to @question" do
-      expect{question :create, question: {title: "Test Title", body: "Test Body", resolved: false}}.to change(Question, :count).by(1)
+      #post :create, {topic: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}
+      question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
       expect(assigns(:question)).to eq Question.last
     end
 
     it "redirects to the new question" do
-      expect{question :create, question: {title: "Test Title", body: "Test Body", resolved: false}}.to change(Question, :count).by(1)
+      question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
       expect(response).to redirect_to Question.last
     end
   end
@@ -97,10 +99,10 @@ RSpec.describe QuestionsController, type: :controller do
       put :update, id: my_question.id, question: {title: new_title, body: new_body, resolved: new_resolved}
 
       updated_question = assigns(:question)
-      expect(question_instance.id).to eq my_question.id
-      expect(question_instance.title).to eq my_question.title
-      expect(question_instance.body).to eq my_question.body
-      expect(question_instance.resolved).to eq my_question.resolved
+      expect(updated_question.id).to eq my_question.id
+      expect(updated_question.title).to eq my_question.title
+      expect(updated_question.body).to eq my_question.body
+      expect(updated_question.resolved).to eq my_question.resolved
     end
 
     it "redirects to the updated question" do

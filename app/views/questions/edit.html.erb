@@ -10,13 +10,14 @@
 
             <div class="form_group">
                 <%= f.label :body %>
-                <%= f.text_field :body, rows: 8, class: 'form-control', placeholder: "Enter question body" %>
+                <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter question body" %>
             </div>
 
             <!-- TODO: May require refactoring -->
             <div class="form_group">
-                <%= f.label :resolved %>
-                <%= f.check_box :resolved, {}, true, false %>
+                <%= f.label :resolved, class: 'check_box' do %>
+                  <%= f.check_box :resolved %> Resolved?
+                <% end %>
             </div>
 
 

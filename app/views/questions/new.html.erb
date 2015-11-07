@@ -14,8 +14,9 @@
 
             <!-- TODO: May require refactoring -->
             <div class="form_group">
-                <%= f.label :resolved %>
-                <%= f.check_box :resolved, {}, true, false %>
+                <%= f.label :resolved, class: 'check_box' do %>
+                  <%= f.check_box :resolved %> Resolved?
+                <% end %>
             </div>
 
             <div class="form-group">
