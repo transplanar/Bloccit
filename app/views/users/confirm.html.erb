@@ -1,0 +1,8 @@
+<h1>Sign Up Confirmation</h1>
+<h2>Are you sure these values are correct?</h2>
+
+<p>name: <%= @user.name %></p>
+<p>email: <%= @user.email %></p>
+
+<%= f.submit "Yes", class: 'btn btn-success' %>
+<%= f.submit "No", class: 'btn btn-warning' %>

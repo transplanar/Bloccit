@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'confirm' => 'users#confirm'
+
   resources :topics do
     resources :posts, except: [:index]
   end
