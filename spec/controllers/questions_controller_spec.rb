@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
-  let(:my_question){Question.create!(title: "Test Title", body: "Test Body", resolved:false)}
+  let(:my_question){Question.create!(title: "Default Title", body: "Default Body", resolved:false)}
 
   describe "GET #index" do
     it "returns http success" do
@@ -51,18 +51,18 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "POST create" do
     it "increase the number of question by 1" do
-      expect{ question :create, {question: {title: "Test Title", description: "Test body"}}}.to change(Question,:count).by(1)
+      expect{ post :create, {question: {title: "Test Title", description: "Test body"}}}.to change(Question,:count).by(1)
       #expect{ question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}.to change(Question, :count).by(1)
     end
 
     it "assigns the new question to @question" do
       #post :create, {topic: {name: RandomData.random_sentence, description: RandomData.random_paragraph}}
-      question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
+      post :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
       expect(assigns(:question)).to eq Question.last
     end
 
     it "redirects to the new question" do
-      question :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
+      post :create, {question: {title: "Test Title", body: "Test Body", resolved: false}}
       expect(response).to redirect_to Question.last
     end
   end

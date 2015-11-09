@@ -32,16 +32,14 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-
     @question.title = params[:question][:title]
     @question.body = params[:question][:body]
-    @question.resolved = params[:question][:resolved]
 
     if @question.save
-      flash[:notice] = "Question has been updated"
+      flash[:notice] = "Question was updated."
       redirect_to @question
     else
-      flash[:error] = "Error updating question. Please try again."
+      flash[:error] = "There was an error saving the question. Please try again."
       render :edit
     end
   end
