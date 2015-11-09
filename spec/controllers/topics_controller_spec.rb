@@ -309,19 +309,9 @@ RSpec.describe TopicsController, type: :controller do
     end
 
     describe "GET new" do
-      it "returns http success" do
+      it "returns http redirect" do
         get :new
-        expect(response).to have_http_status(:success)
-      end
-
-      it "renders the #new view" do
-        get :new
-        expect(response).to render_template :new
-      end
-
-      it "initializes @topic" do
-        get :new
-        expect(assigns(:topic)).not_to be_nil
+        expect(response).to redirect_to(topics_path)
       end
     end
 

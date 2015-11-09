@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
   before_action :authorize_user, except: [:index, :show]
-  before_action :authorize_delete, only: [:delete]
+  before_action :authorize_delete_create, only: [:new, :create, :delete]
 
   def index
     @topics = Topic.all
@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
     end
   end
 
-  def authorize_delete
+  def authorize_delete_create
     unless current_user.admin?
       flash[:error] = 'You must be an admin to do that.'
       redirect_to topics_path
