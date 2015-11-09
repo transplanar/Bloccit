@@ -32,7 +32,7 @@ end
     topic: topics.sample,
     title: "Sponsored: #{RandomData.random_sentence}",
     body: "Sponsored Content: #{RandomData.random_paragraph}",
-    price: "Price : #{50}"
+    price: 50
   )
 end
 

@@ -3,9 +3,10 @@
 <div class="row">
     <div class="col-md-8">
         <p><%= @sponsored_post.body %></p>
+        <p>Now only <strong>$<%= @sponsored_post.price %></strong>! </p>
     </div>
 
     <div class="col-md-4">
-        <%= link_to "Edit", edit_topic_sponsored_post_path(@sponsored_post.topic, @sponsored_post), class: 'btn btn-success' %>        
+      <%= link_to "Edit", edit_topic_sponsored_post_path(@sponsored_post.topic, @sponsored_post), class: 'btn btn-success' %>
     </div>
 </div>
