@@ -96,9 +96,14 @@ RSpec.describe QuestionsController, type: :controller do
       new_body = "New Test Body"
       new_resolved = 0
 
+      puts ">>>>>>>>>>>>> my_question: #{my_question.inspect}"
+
       put :update, id: my_question.id, question: {title: new_title, body: new_body, resolved: new_resolved}
 
+
+      puts ">>>>>>>>>>>>> my_question after: #{my_question.inspect}"
       updated_question = assigns(:question)
+      puts ">>>>>>>> updated_question: #{updated_question.inspect}"
       expect(updated_question.id).to eq my_question.id
       expect(updated_question.title).to eq my_question.title
       expect(updated_question.body).to eq my_question.body
