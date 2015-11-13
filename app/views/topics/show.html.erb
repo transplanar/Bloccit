@@ -8,7 +8,6 @@
 <div class="row">
   <div class="col-md-8">
 
-    <!--TODO This looks like duplicate code -->
     <p class="lead">
       <%= render partial: "labels/list", locals: { labels: @topic.labels } %>
       <br />
@@ -17,6 +16,7 @@
 
     <% @topic.posts.each do |post| %>
     <div class="media">
+      <%= render partial: 'votes/voter', locals: { post: post } %>
       <div class="media-body">
         <h4 class="media-heading">
           <%= link_to post.title, topic_post_path(@topic, post) %>
