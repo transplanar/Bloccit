@@ -15,11 +15,11 @@ class FavoriteMailer < ActionMailer::Base
     mail(to: "transplanar@gmail.com", subject: "New comment on #{post.title}")
   end
 
-  def new_post(user, post)
+  def new_post(post)
+    headers["Message-ID"] = "<posts/#{comment.id}@your-app-name.example>"
     headers["In-Reply-To"] = "<post/#{post.id}@your-app-name.example>"
     headers["References"] = "<post/#{post.id}@your-app-name.example>"
 
-    @user = user
     @post = post
 
     #NOTE Altered for testing
