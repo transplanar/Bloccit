@@ -5,6 +5,7 @@ RSpec.describe Post, type: :model do
   let(:topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
   let(:user) { User.create!(name: 'Bloccit User', email: 'user@bloccit.com', password: 'helloworld') }
   let(:post) { topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: user) }
+  let(:comment) { Comment.create!(body: 'Comment Body', post: post, user: user) }
 
   it { should have_many(:labelings) }
   it { should have_many(:labels).through(:labelings) }
@@ -78,5 +79,35 @@ RSpec.describe Post, type: :model do
         expect(post.rank).to eq (old_rank - 1)
       end
     end
+  end
+
+  describe 'favorites' do
+    before do
+      @favorite = user.favorites.create(post: post)
+      @comment = Comment.new(body: 'Comment Body', post: post, user: user)
+    end
+
+    describe '#create_favorite' do
+      it 'creates a new favorite for this post' do
+        expect(user.favorites.last.post).to eq(post)
+      end
+
+      it 'sends email update when a new comment is made' do
+        expect(Post).to receive(:new_post).with(user, post, comment)
+      end
+    end
+
+    # it "sends an email to users who have favorited the post" do
+    #   favorite = user.favorites.create(post: post)
+    #   expect(FavoriteMailer).to receive(:new_comment).with(user, post, @another_comment).and_return(double(deliver_now: true))
+    #
+    #   @another_comment.save
+    # end
+    #
+    # it "does not send emails to users who haven't favorited the post" do
+    #   expect(FavoriteMailer).not_to receive(:new_comment)
+    #
+    #   @another_comment.save
+    # end
   end
 end

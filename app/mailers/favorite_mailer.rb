@@ -14,4 +14,16 @@ class FavoriteMailer < ActionMailer::Base
     #mail(to: user.email, subject: "New comment on #{post.title}")
     mail(to: "transplanar@gmail.com", subject: "New comment on #{post.title}")
   end
+
+  def new_post(user, post)
+    headers["In-Reply-To"] = "<post/#{post.id}@your-app-name.example>"
+    headers["References"] = "<post/#{post.id}@your-app-name.example>"
+
+    @user = user
+    @post = post
+
+    #NOTE Altered for testing
+    #mail(to: user.email, subject: "New comment on #{post.title}")
+    mail(to: "transplanar@gmail.com", subject: "You are now subscribed to \"#{post.title}\"")
+  end
 end

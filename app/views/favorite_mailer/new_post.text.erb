@@ -1,0 +1,7 @@
+Hello <%= @user.name %>,
+
+You are now subscrubed to "<%= @post.title %>"
+
+You will recieve email updates of new comments to this post.
+
+View your post online at <%= topic_post_url(@post.topic, @post) %>
