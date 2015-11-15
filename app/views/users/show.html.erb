@@ -13,14 +13,22 @@
         <small>
           <%= pluralize(@user.posts.count, 'post') %>,
           <%= pluralize(@user.comments.count, 'comment') %>
+          <%= pluralize(@user.favorites.count, 'favorite') %>
         </small>
       </div>
     </div>
   </div>
 </div>
 
-<h2>Posts</h2>
-<%= render @user.posts %>
+<% if has_posts(@user) %>
+  <h2>Posts</h2>
+  <%= render @user.posts %>
+<% else  %>
+  <h3><%= "#{@user.name}" %> has not posted anything yet.</h3>
+<% end %>
 
 <h2>Comments</h2>
 <%= render @user.comments %>
+
+<h2>Favorites</h2>
+<%= render partial: "users/favorites", locals: {favorite: @user.favorites}  %>
