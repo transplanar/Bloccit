@@ -7,8 +7,7 @@ require 'rails_helper'
     let(:my_user) { create(:user) }
     let(:other_user) { create(:user) }
     let(:my_post) { create(:post, topic: my_topic, user: my_user) }
-    # let(:my_comment) { Comment.create!(body: 'Comment Body', post: my_post, user: my_user) }
-    let(:my_comment) {create(:comment)}
+    let(:my_comment) { Comment.create!(body: 'Comment Body', post: my_post, user: my_user) }
 
    context "guest" do
      describe "POST create" do
@@ -51,7 +50,6 @@ require 'rails_helper'
    end
 
 
- # #8
    context "member user doing CRUD on a comment they own" do
      before do
        create_session(my_user)
@@ -82,7 +80,6 @@ require 'rails_helper'
      end
    end
 
- # #9
    context "admin user doing CRUD on a comment they don't own" do
      before do
        other_user.admin!

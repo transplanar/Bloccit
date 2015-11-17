@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe LabelsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
   describe 'labels_to_buttons' do
     it 'turns labels into HTML buttons' do
       L1 = Label.create!(name: 'L1')
