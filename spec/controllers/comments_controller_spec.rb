@@ -32,7 +32,7 @@ RSpec.describe CommentsController, type: :controller do
 
     describe 'POST create' do
       it 'increases the number of comments by 1' do
-        expect{ post: create, format: :js, post_id: my_post.id, comment: {body: RandomData.random_sentence}}.to change(Comment,:count).by(1)
+        expect{ post :create, format: :js, post_id: my_post.id, comment: {body: RandomData.random_sentence} }.to change(Comment,:count).by(1)
       end
 
       it "returns http success" do
@@ -56,7 +56,7 @@ RSpec.describe CommentsController, type: :controller do
 
     describe 'POST create' do
       it 'increases the number of comments by 1' do
-        expect { post :create, post_id: my_post.id, comment: { body: RandomData.random_sentence } }.to change(Comment, :count).by(1)
+        expect { post :create, format: :js, post_id: my_post.id, comment: { body: RandomData.random_sentence } }.to change(Comment, :count).by(1)
       end
 
       it 'returns http success' do
