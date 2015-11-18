@@ -64,7 +64,7 @@ RSpec.describe VotesController, type: :controller do
         # post :up_vote, post_id: user_post.id
         post :up_vote, format: :js, post_id: user_post.id
         # expect(response).to redirect_to([my_topic, user_post])
-        expect(response).to have_http_success(:success)
+        expect(response).to have_http_status(:success)
       end
 
       it 'show http success on down vote from TOPIC show view' do
@@ -72,7 +72,7 @@ RSpec.describe VotesController, type: :controller do
         # post :up_vote, post_id: user_post.id
         post :up_vote, format: :js, post_id: user_post.id
         # expect(response).to redirect_to(my_topic)
-        expect(response).to have_http_success(:success)
+        expect(response).to have_http_status(:success)
       end
     end
 
@@ -106,7 +106,7 @@ RSpec.describe VotesController, type: :controller do
         # post :down_vote, post_id: user_post.id
         post :down_vote, format: :js, post_id: user_post.id
         # expect(response).to redirect_to([my_topic, user_post])
-        expect(response).to have_http_success(:success)
+        expect(response).to have_http_status(:success)
       end
 
       # it ':back redirects to posts topic show' do
@@ -115,7 +115,7 @@ RSpec.describe VotesController, type: :controller do
         # post :down_vote, post_id: user_post.id
         post :down_vote, format: :js, post_id: user_post.id
         # expect(response).to redirect_to(my_topic)
-        expect(response).to have_http_success(:success)
+        expect(response).to have_http_status(:success)
       end
     end
   end
