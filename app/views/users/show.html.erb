@@ -20,15 +20,11 @@
   </div>
 </div>
 
-<% if has_posts(@user) %>
-  <h2>Posts</h2>
-  <%= render @user.posts %>
-<% else  %>
-  <h3><%= "#{@user.name}" %> has not posted anything yet.</h3>
-<% end %>
+<h2>Posts</h2>
+<%= render_posts_for(@user) %>
 
 <h2>Comments</h2>
 <%= render @user.comments %>
 
 <h2>Favorites</h2>
-<%= render partial: "users/favorites", locals: {favorite: @user.favorites}  %>
+<%= render @user.favorites.map {|fave| fave.post} %>
