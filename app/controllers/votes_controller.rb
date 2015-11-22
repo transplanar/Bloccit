@@ -16,7 +16,7 @@ class VotesController < ApplicationController
 
   def down_vote
     update_vote(-1)
-    # redirect_to :back
+    redirect_to :back
 
     # TODO: Make more DRY
     respond_to do |format|

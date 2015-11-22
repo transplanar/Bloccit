@@ -1,9 +1,11 @@
 <div>
+<!--NOTE OG  -->
+  <%= render partial: 'votes/voter', locals: { post: @post } %>
 
-  <!-- <%= render partial: 'votes/voter', locals: { post: @post } %> -->
-  <div class ="js-up-vote">
-      <%= render partial: "votes/vote", locals: post: @post %>
-  </div>
+  <!--NOTE New  -->
+  <!-- <div class ="js-up-vote"> -->
+      <!-- %= render partial: "votes/voter", locals: {post: @post} %> -->
+  <!-- </div> -->
 
   <h1>
     <%= @post.title %>
@@ -51,7 +53,13 @@
 
   <div class="col-md-4">
     <h3>
+<!-- NOTE OG -->
       <%= pluralize(@post.points, 'point') %>
+<!-- NOTE New -->
+      <!-- <div class='js-points-count'> -->
+        <!-- <%= pluralize(@post.points, 'point') %> -->
+      <!-- </div> -->
+
       <div>
         <small>
           <%= pluralize(@post.up_votes, 'up vote') %>,
