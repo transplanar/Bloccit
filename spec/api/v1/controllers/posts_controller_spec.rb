@@ -108,7 +108,8 @@ RSpec.describe Api::V1::PostsController, type: :controller do
       # >>>>>>>>>>>>>>>>>>>>>>>>>>Template
       # before { post :create, topic: { name: @new_topic.name, description: @new_topic.description } }
 
-      before { post :create, topic_id: my_topic.id, post: { title: @new_post.title, body: @new_post.body } }
+      # before { post :create, topic_id: my_topic.id, post: { title: @new_post.title, body: @new_post.body } }
+      before { post :create, topic_id: my_topic.id, post: { title: "TEST TITLE", body: "TEST BODY TEST BODY TEST BODY " } }
 
       it 'returns http success' do
         expect(response).to have_http_status(:success)
