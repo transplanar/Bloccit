@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 # TODO Change to use #create_post from Topics controller
         # resources :posts, only: [:destroy,:create,:update]
         # resources :posts, only: [:destroy,:update]
-        resources :posts, only: [:create]
+        # resources :posts
       end
 
       resources :posts, except: [:create]

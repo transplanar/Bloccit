@@ -45,6 +45,8 @@ class Api::V1::TopicsController < Api::V1::BaseController
 
   def create_post
     @post = Post.create(id:params[:id],topic_id: self.id)
+
+    render json: @post.to_json, status:200
   end
 
   private
