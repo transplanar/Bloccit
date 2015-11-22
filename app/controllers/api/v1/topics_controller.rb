@@ -43,6 +43,10 @@ class Api::V1::TopicsController < Api::V1::BaseController
    end
   end
 
+  def create_post
+    @post = Post.create(id:params[:id],topic_id: self.id)
+  end
+
   private
 
   def topic_params
