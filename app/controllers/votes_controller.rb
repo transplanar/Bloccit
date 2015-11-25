@@ -9,18 +9,17 @@ class VotesController < ApplicationController
 
     # TODO: Make more DRY
     respond_to do |format|
-      format.html
+      format.html { redirect_to :back }
       format.js
     end
   end
 
   def down_vote
     update_vote(-1)
-    redirect_to :back
 
     # TODO: Make more DRY
     respond_to do |format|
-      format.html
+      format.html { redirect_to :back }
       format.js
     end
   end

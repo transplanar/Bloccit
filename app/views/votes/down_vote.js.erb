@@ -1,10 +1,1 @@
-<% if @vote.saved? %>
-  // $('.js-comments').append("<%= escape_javascript(render(@comment)) %>");
-  $('.up-vote').html(
-    "<%= escape_javascript(partial: 'votes/voter', locals: { post: @post } ) %>");
-<% else %>
-  // $('.flash').prepend("<div class='alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><%= flash[:error] %></div>")
-  $('.flash').append("<div class='alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><%= flash[:error] %></div>")
-  // $('.new-vote').html("<% escape_javascript(render partial: 'comments/form', locals: {post: @post, comment: @comment}) %>");
-  $('.up-vote').html("<%= escape_javascript(partial: 'votes/voter', locals: { post: @post } ) %>");
-<% end %>
+$("#post-vote-<%= @post.id %>").html("<%= escape_javascript(render partial: 'votes/voter', locals: { post: @post } ) %>");
