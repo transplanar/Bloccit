@@ -21,15 +21,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # resources :users, only: [:index,:show]
-# Old
       # resources :topics, except: [:edit,:new]
-# New
+
       resources :topics, except: [:edit,:new] do
-# TODO Change to use #create_post from Topics controller
-        # resources :posts, only: [:destroy,:create,:update]
-        # resources :posts, only: [:destroy,:update]
-        # resources :posts
+        # resources :posts, only: [:create]
+        post '/create_post' => 'topics#create_post', as: :create_post
       end
 
       resources :posts, except: [:create]

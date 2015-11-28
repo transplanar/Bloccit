@@ -44,9 +44,22 @@ class Api::V1::TopicsController < Api::V1::BaseController
   end
 
   def create_post
-    @post = Post.create(id:params[:id],topic_id: self.id)
+    # post :create, topic_id: my_topic.id, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
 
-    render json: @post.to_json, status:200
+    # @post = Post.create(id:params[:id],topic_id: self.id)
+    # @post = Post.create(topic_id: post_params[:topic_id], post: params[:post])
+    # @post = Post.create(params)
+
+    # render json: @post.to_json, status:200
+
+    post = Post.new(params)
+
+     if post.valid?
+       post.save!
+       render json: post.to_json, status: 201
+     else
+       render json: {error: "Post is invalid", status: 400}, status: 400
+     end
   end
 
   private
