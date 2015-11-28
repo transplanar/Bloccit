@@ -1,11 +1,7 @@
 <div>
-<!--NOTE OG  -->
-  <%= render partial: 'votes/voter', locals: { post: @post } %>
-
-  <!--NOTE New  -->
-  <!-- <div class ="js-up-vote"> -->
-      <!-- %= render partial: "votes/voter", locals: {post: @post} %> -->
-  <!-- </div> -->
+  <div id="post-vote-<%= @post.id %>">
+    <%= render partial: 'votes/voter', locals: { post: @post } %>
+  </div>
 
   <h1>
     <%= @post.title %>
