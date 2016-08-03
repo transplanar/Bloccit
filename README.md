@@ -28,5 +28,5 @@ Click ```New Post``` to create a new post under the current Topic. Provide a tit
 #####Labels
 Labels are tags that allow users to locate similar posts. By clicking on a label, you will be shown a list of all pages tagged with that label.
 
-###View User Your User Profile
+###View Your User Profile
 On your user profile, you will see a list of all posts you have authored, as well as all of your comments. You may visit any of your posts from this screen to view or edit them.
