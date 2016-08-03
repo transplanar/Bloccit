@@ -8,7 +8,7 @@ Sign up for a new account or Sign In using one of the following test credentials
 * ```admin@example.com / helloworld```
 * ```member@example.com / helloworld```
 
-Once logged in, you may then **View Topics**, or **View Your User Profile**.
+Once logged in, you may then [View Topics](#view-topics), or **View Your User Profile**.
 
 ###View Topics
 Click the ```Topics``` tab at the top to view an index of all topics in the database. From here you may click a topic to view its Posts. From here you may **View a Post**, **Vote on a Post**, or **Create a New Post**.
